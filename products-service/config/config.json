@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "Postgres@2019",
+    "database": "ec-products",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "Postgres@2019",
+    "database": "ec-products",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "Postgres@2019",
+    "database": "ec-products",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
