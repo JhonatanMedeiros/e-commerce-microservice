@@ -1,9 +1,9 @@
-{
+export default {
   "development": {
     "username": "postgres",
-    "password": "Postgres@2019",
+    "password": "postgres",
     "database": "ec-products",
-    "host": "localhost",
+    "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
