@@ -1,4 +1,4 @@
-const http = require('http');
+import http from 'http';
 
 /**
  * @export
@@ -7,21 +7,15 @@ const http = require('http');
  */
 class HttpError extends Error {
 
-  /**
-   * Creates an instance of HttpError.
-   * @param {number} [status]
-   * @param {string} [message]
-   * @memberof HttpError
-   */
   constructor(status, message) {
-  super(message);
+    super(message);
 
-  Error.captureStackTrace(this, this.constructor);
+    Error.captureStackTrace(this, this.constructor);
 
-  this.status = status || 500;
-  this.name = this.name;
-  this.message = message || http.STATUS_CODES[this.status] || 'Error';
+    this.status = status || 500;
+    this.name = this.name;
+    this.message = message || http.STATUS_CODES[this.status] || 'Error';
+  }
 }
-}
 
-module.exports = HttpError;
+export default HttpError

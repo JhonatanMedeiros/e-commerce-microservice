@@ -2,14 +2,26 @@
   "name": "gateway",
   "version": "1.0.0",
   "description": "E-Commerce Gateway",
-  "keywords": ["nodejs", "microservice", "gateway", "api", "express","nodemon", "npm", "yarn", "sequelize", "docker"],
+  "keywords": [
+    "nodejs",
+    "microservice",
+    "gateway",
+    "api",
+    "express",
+    "nodemon",
+    "npm",
+    "yarn",
+    "sequelize",
+    "docker"
+  ],
   "main": "server.js",
   "author": "Jhonatan Medeiros",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start": "npm run build && node dist/server.js",
+    "dev": "nodemon src/server.js",
+    "build": "sucrase ./src -d ./dist --transforms imports"
   },
   "dependencies": {
     "compression": "^1.7.4",
@@ -27,6 +39,7 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.2",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "sucrase": "^3.10.1"
   }
 }

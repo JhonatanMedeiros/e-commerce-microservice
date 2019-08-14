@@ -1,19 +1,15 @@
-const express = require('express');
-const morgan = require('morgan');
-const compression = require('compression');
-const cookieParser = require('cookie-parser');
-const cors = require('cors');
-const helmet = require('helmet');
-const fs = require('fs')
-;
-const config = require('../env/index');
-const HttpError = require('../error');
-const sendHttpErrorModule = require('../error/sendHttpError');
+import express from 'express';
+import morgan from 'morgan';
+import compression from 'compression';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import helmet from 'helmet';
+import fs from 'fs';
 
-/**
- * @export
- * @param {express.Application} app
- */
+import config from '../env/index';
+import HttpError from '../error';
+import sendHttpErrorModule from '../error/sendHttpError';
+
 function configure(app) {
 
   // express middleware
@@ -56,10 +52,6 @@ function configure(app) {
   });
 }
 
-/**
- * @export
- * @param {express.Application} app
- */
 function initErrorHandler(app) {
   app.use((error, req, res, next) => {
     if (typeof error === 'number') {
@@ -77,10 +69,11 @@ function initErrorHandler(app) {
         res.sendHttpError(error, error.message);
       }
     }
+    next();
   });
 }
 
-module.exports = {
+export default {
   configure,
   initErrorHandler
-};
+}

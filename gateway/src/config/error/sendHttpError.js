@@ -1,9 +1,3 @@
-/**
- * @exports
- * @param {Request} req
- * @param {*} res
- * @param {NextFunction} next
- */
 function sendHttpErrorModule(req, res, next){
   res.sendHttpError = (error) => {
     res.status(error.status);
@@ -50,4 +44,4 @@ const generateHTML = (error) => {
   return '';
 };
 
-module.exports = sendHttpErrorModule;
+export default sendHttpErrorModule

@@ -1,8 +1,3 @@
-/**
- * @param  {NodeJS.ErrnoException} error
- * @param  {number|string|boolean} port
- * @returns throw error
- */
 function onError(error, port) {
   if (error.syscall !== 'listen') {
     throw error;
@@ -26,9 +21,6 @@ function onError(error, port) {
   }
 }
 
-/**
- * @export onListening
- */
 function onListening() {
   const addr = this.address();
   const bind = (typeof addr === 'string') ? `pipe ${addr}` : `port ${addr.port}`;
@@ -40,7 +32,7 @@ function onClose() {
   console.log('\x1b[32m', 'API :: On Close', '\x1b[0m');
 }
 
-module.exports = {
+export default {
   onError,
   onListening,
   onClose

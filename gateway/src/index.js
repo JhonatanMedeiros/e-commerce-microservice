@@ -1,6 +1,6 @@
-const http = require('http');
-const serverHandlers = require('./config/server/serverHandlers');
-const server = require('./config/server/server');
+import http from 'http';
+import serverHandlers from './config/server/serverHandlers';
+import server from './config/server/server';
 
 const Server = http.createServer(server);
 
