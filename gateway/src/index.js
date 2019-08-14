@@ -15,5 +15,3 @@ Server.listen(server.get('port'));
 Server.on('error', (error) => serverHandlers.onError(error, server.get('port')));
 Server.on('listening', serverHandlers.onListening.bind(Server));
 Server.on('close', () => serverHandlers.onClose());
-
-module.exports = Server;

@@ -5,9 +5,10 @@ import http from 'http';
 function init(app) {
   const router = express.Router();
 
+  // TODO: Add dynamic proxy
   const productsServiceProxy = httpProxy('http://localhost:3001');
 
-  app.get('/products', (req, res, next) => productsServiceProxy(req, res, next));
+  app.use('/products', productsServiceProxy);
 
   app.get('/ping', (req, res) => res.json({
     msg: 'pong!',
@@ -19,4 +20,4 @@ function init(app) {
   app.use(router);
 }
 
-module.exports = { init };
+export default { init };
