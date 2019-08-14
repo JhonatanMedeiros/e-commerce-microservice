@@ -1,0 +1,58 @@
+version: '3.7'
+
+services:
+  e-commerce_products:
+    build: ./products-service
+    container_name: e_commerce_products
+    links:
+      - "e-commerce_postgres"
+    depends_on:
+      - "e-commerce_postgres"
+    ports:
+      - "3001:3001"
+    command: npm run start
+    networks:
+      - e-commerce-postgres-network
+
+  e-commerce_gateway:
+    build: ./gateway
+    container_name: e_commerce_gateway
+    links:
+      - "e-commerce_postgres"
+      - "e-commerce_products"
+    depends_on:
+      - "e-commerce_postgres"
+      - "e-commerce_products"
+    ports:
+      - "3000:3000"
+    command: npm run start
+    networks:
+      - e-commerce-postgres-network
+
+  e-commerce_pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "user@email.com"
+      PGADMIN_DEFAULT_PASSWORD: "postgres"
+    ports:
+      - "16543:80"
+    depends_on:
+      - e-commerce_postgres
+    networks:
+      - e-commerce-postgres-network
+
+
+  e-commerce_postgres:
+    container_name: e_commerce_postgres
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ec-products
+    ports:
+      - "5432:5432"
+    networks:
+      - e-commerce-postgres-network
+
+networks:
+  e-commerce-postgres-network:
+    driver: bridge

@@ -1,6 +1,6 @@
 import http from 'http';
 import serverHandlers from './config/server/serverHandlers';
-import server from './config/server/server';
+import server from './config/server';
 
 const Server = http.createServer(server);
 

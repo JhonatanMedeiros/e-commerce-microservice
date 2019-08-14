@@ -19,7 +19,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "npm run build && node dist/server.js",
+    "start": "npm run build && node dist/index.js",
     "dev": "nodemon src/server.js",
     "build": "sucrase ./src -d ./dist --transforms imports"
   },
