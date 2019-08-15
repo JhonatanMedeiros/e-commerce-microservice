@@ -1,0 +1,28 @@
+{
+  "$id": "http://localhost:300/models/gateway.config.json",
+  "type": "object",
+  "properties": {
+    "serviceEndpoints": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "url"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

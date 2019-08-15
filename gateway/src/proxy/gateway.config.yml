@@ -1,0 +1,5 @@
+serviceEndpoints:
+  products:
+    url: 'http://localhost:3001'
+  user:
+    url: 'http://localhost:3001'
