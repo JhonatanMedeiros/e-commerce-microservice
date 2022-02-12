@@ -24,7 +24,7 @@
     "build": "sucrase ./src -d ./dist --transforms imports"
   },
   "dependencies": {
-    "ajv": "^6.10.2",
+    "ajv": "^6.12.3",
     "chokidar": "^3.0.2",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.4",
